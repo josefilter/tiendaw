@@ -8,8 +8,9 @@ mongoose.connect ("mongodb://localhost:27017/tiendaw", { useNewUrlParser: true }
     .then( db => console.log("Conexión a BD correcta") )
     .catch( err => console.log("Error al conectar a BD: " + err) );
 
+app.use(express.json());    // IMPORTANTE: Poner esto antes de las rutas
 app.use ('/api', routes);
-app.use (express.json());
+
 
 // app.get("/", (req, res) => {
 //     res.send("www.twitch.tv/waide")
