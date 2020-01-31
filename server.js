@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes.js');
 
+require('dotenv').config();
+
 const app = express();
 
-mongoose.connect ("mongodb+srv://jotandj:Temporal22@cluster0-6gthp.mongodb.net/tienda?retryWrites=true&w=majority", { useNewUrlParser: true } )
+mongoose.connect (process.env.DB_URI, { useNewUrlParser: true } )
     .then( db => console.log("Conexión a BD correcta") )
     .catch( err => console.log("Error al conectar a BD: " + err) );
 
